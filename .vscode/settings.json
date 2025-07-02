@@ -1,0 +1,22 @@
+{
+    // Python
+    "python.pythonPath": "$eink-strava-display/venv/bin/python",
+    "python.formatting.provider": "black",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.mypyEnabled": false,
+    // Format on save
+    "editor.formatOnSave": true,
+    // Remote SSH (optional hostname override)
+    "remote.SSH.remotePlatform": {
+        "einkdash.local": "linux"
+    },
+    // Terminal integrated environment (use bash/zsh as needed)
+    "terminal.integrated.shell.linux": "/bin/bash",
+    // Git
+    "git.enableSmartCommit": true,
+    // Editor
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+}
