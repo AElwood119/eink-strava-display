@@ -4,17 +4,20 @@
 - [ ] Waveshare 2.13"
 - [ ] Pimoroni Inky pHAT
 - [ ] DFRobot ePaper
+- [x] Inky Impression 7.3"
 
 ## Controller
 - [ ] Raspberry Pi Zero W
 - [ ] ESP32
+- [x] Raspberry Pi 4B
+- [ ] Raspberry Pi 5
 
 ## Power Options
-- [ ] USB wall adapter
+- [x] USB wall adapter
 - [ ] LiPo battery + boost converter
 - [ ] Solar + battery
 
 ## Final Choice:
-- E-Ink Display: ___
-- Controller: ___
-- Power: ___
+- E-Ink Display: Inky Impression 7.3"
+- Controller: Raspberry Pi 4B
+- Power: USB wall adapter
