@@ -5,3 +5,4 @@ E-ink display that shows Strava training data like mileage, activities, and PBs,
 ## References
 
 - [Strava API Documentation](https://developers.strava.com/docs/)
+- [Strava API Getting Started] (https://developers.strava.com/docs/getting-started/)
