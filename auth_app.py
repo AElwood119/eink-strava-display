@@ -2,6 +2,7 @@ from flask import Flask, redirect, request
 import requests
 from dotenv import load_dotenv
 import os
+import json
 
 # Load .env file
 load_dotenv()
@@ -32,7 +33,6 @@ def home():
 @app.route("/authorised")
 def authorised():
     ACCESS_CODE = request.args.get("code")
-    # Send request to https://www.strava.com/oauth/token
     tokenReqURL = "https://www.strava.com/oauth/token"
     tokenReqResponse = requests.post(
         tokenReqURL,
@@ -43,7 +43,24 @@ def authorised():
             "grant_type": "authorization_code",
         },
     )
-    return f"Access Code: {ACCESS_CODE} \n Response JSON: {tokenReqResponse.json()}"
+
+    new_token_data = tokenReqResponse.json()
+
+    # Load existing tokens or start a new list
+    if os.path.exists("strava_tokens.json"):
+        with open("strava_tokens.json", "r") as f:
+            all_tokens = json.load(f)
+    else:
+        all_tokens = []
+
+    # Append new token
+    all_tokens.append(new_token_data)
+
+    # Write entire list back
+    with open("strava_tokens.json", "w") as f:
+        json.dump(all_tokens, f, indent=2)
+
+    return f"Access Code: {ACCESS_CODE}"
 
 
 if __name__ == "__main__":
