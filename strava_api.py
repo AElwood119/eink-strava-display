@@ -16,6 +16,16 @@ def get_activities(access_token):
         return None
 
 
+def save_activities(activities):
+    if activities:
+        activities = get_activities(access_token=access_token)
+        with open("activity_responses.json", "w") as f:
+            json.dump(activities, f, indent=2)
+    else:
+        print("No activites availble to save.")
+    return
+
+
 if __name__ == "__main__":
     # Read access token from strava_tokens.json
     with open("strava_tokens.json", "r") as tokens_file:
@@ -28,11 +38,8 @@ if __name__ == "__main__":
     if activities:
         for activity in activities[:5]:  # just look at the first 5 for now
             print(activity["type"])
-            print(activity["name"], "-", activity["distance"], "meters")
-
-            # For the purposes of testing, we save the json response to file
-            # Load existing tokens or start a new list
-            with open("activity_responses.json", "w") as f:
-                json.dump(activities, f, indent=2)
+            # print(activity["name"], "-", activity["distance"], "meters")
     else:
         print("Failed to fetch activities.")
+
+    save_activities(activities)
