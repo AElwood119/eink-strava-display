@@ -2,3 +2,4 @@
 .env
 strava_tokens.json
 activity_responses.json
+test.py
