@@ -35,4 +35,4 @@ if __name__ == "__main__":
     activities = load_activities_file()
     running_stats = get_running_stats(activities=activities, numDays=7)
 
-    print(running_stats)
+    print(running_stats[0] / 1000)
