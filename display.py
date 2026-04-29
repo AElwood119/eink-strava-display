@@ -16,24 +16,17 @@ text_colour = (78, 2, 80)
 base_image = Image.new("RGBA", eink_resolution, color=background_colour)
 draw = ImageDraw.Draw(base_image)
 
-# Create an image for the distance text:
-disp_txt = Image.new("RGBA", base_image.size, (255, 255, 255, 0))
 # get a font
 fnt = ImageFont.truetype("fonts\\FjallaOne-Regular.ttf", size=60)
-# get a drawing context
-d = ImageDraw.Draw(disp_txt)
 
 ## Strings for displaying
 dist_string = f"Total Distance = {running_stats[0] / 1000:.1f} km"
-climb_string = f"Total Climb = {running_stats[1]} m"
+climb_string = f"Total Climb = {running_stats[1]:.0f} m"
 
 # draw text, half opacity
-d.text((10, 10), dist_string, font=fnt, fill=text_colour)
+draw.text((10, 10), dist_string, font=fnt, fill=text_colour)
 # draw text, full opacity
-d.text((10, 70), climb_string, font=fnt, fill=text_colour)
+draw.text((10, 70), climb_string, font=fnt, fill=text_colour)
 
-out = Image.alpha_composite(base_image, disp_txt)
 
-out.show()
-
-# base_image.show()
+base_image.show()
